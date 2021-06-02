@@ -222,7 +222,7 @@ if args.show_wordcloud or args.output is None:
     plt.imshow(finalWordcloud)
     plt.axis("off")
     plt.tight_layout(pad=0)
-    plt.show()
+    plt.draw()  # this should prevent it from stopping the script
 
 # Most repeated words report
 if args.output is not None or args.show_top_words:
@@ -280,7 +280,11 @@ if args.output is not None:
         f.write("\n")
         f.write(dashSep)
         f.write("\n")
+        f.write("\n")
         f.write("Ignored words:")
         f.write("\n")
         f.write("\n".join(myStopWords))
         f.close()
+
+if args.show_wordcloud or args.output is None:
+    plt.show()  # this should prevent python from closing the plot window
