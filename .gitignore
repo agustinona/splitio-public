@@ -1,0 +1,6 @@
+
+*.csv
+support-wordcloud/ignore_words.txt
+*.png
+*.svg
+*.txt
